@@ -1,5 +1,9 @@
 package com.snocal.sms.conf.core.service.inf;
 
+import java.util.List;
+
+import com.snocal.sms.conf.core.dto.GroupDO;
+
 public interface CoreSetupService {
 	public void createApi();
 
@@ -9,6 +13,12 @@ public interface CoreSetupService {
 
 	public void getApi();
 
-	
+	public void createGroup(GroupDO groupDO);
+
+	public void updateGroup(GroupDO groupDO);
+
+	public void deleteGroup(int id);
+
+	public List<GroupDO> getGroup(int id);
 
 }

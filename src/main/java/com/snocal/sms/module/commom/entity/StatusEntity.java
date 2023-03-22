@@ -6,10 +6,10 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public class StatusEntity {
 
-	@Column(name = "id_active")
+	@Column(name = "id_active", columnDefinition = "boolean default true")
 	private boolean isActive;
 
-	@Column(name = "id_deleted")
+	@Column(name = "id_deleted", columnDefinition = "boolean default false")
 	private boolean isDeleted;
 
 	public boolean isActive() {

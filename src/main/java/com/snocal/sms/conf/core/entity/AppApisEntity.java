@@ -85,4 +85,6 @@ public class AppApisEntity extends SNEntity {
 		this.menuEntity = menuEntity;
 	}
 
+	
+
 }

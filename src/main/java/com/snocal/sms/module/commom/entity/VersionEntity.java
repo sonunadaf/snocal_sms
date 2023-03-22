@@ -24,6 +24,10 @@ public class VersionEntity extends StatusEntity {
 	}
 
 	public void setCreatedDate(Date createdDate) {
+
+		if (this.createdDate != null) {
+			this.createdDate = new Date();
+		}
 		this.createdDate = createdDate;
 	}
 
@@ -32,6 +36,10 @@ public class VersionEntity extends StatusEntity {
 	}
 
 	public void setUpdatedDate(Date updatedDate) {
+
+		if (this.updatedDate != null) {
+			this.updatedDate = new Date();
+		}
 		this.updatedDate = updatedDate;
 	}
 

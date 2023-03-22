@@ -5,19 +5,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
-@MappedSuperclass
-public class PrimaryKeyEntity extends VersionEntity {
+//@MappedSuperclass
+public class PrimaryKeyEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+	/*
+	 * @Id
+	 * 
+	 * @GeneratedValue(strategy = GenerationType.AUTO) private int id;
+	 * 
+	 * public int getId() { return id; }
+	 * 
+	 * public void setId(int id) { this.id = id; }
+	 */
 
 }

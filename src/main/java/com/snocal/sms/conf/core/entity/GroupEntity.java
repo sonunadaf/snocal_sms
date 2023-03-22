@@ -3,6 +3,7 @@ package com.snocal.sms.conf.core.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,14 +14,15 @@ import javax.persistence.Table;
 import com.snocal.sms.module.commom.entity.SNEntity;
 
 @Entity
-@Table(name = "SN_APIS")
+@Table(name = "SN_GROUP")
 public class GroupEntity extends SNEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	private String name;
+	@Column(name="group_name")
+	private String groupName;
 
 	@OneToMany(mappedBy = "groupEntity")
 	private Set<MenuEntity> menuEntitySet = new HashSet<>();
@@ -33,12 +35,12 @@ public class GroupEntity extends SNEntity {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getGroupName() {
+		return groupName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
 	}
 
 	public Set<MenuEntity> getMenuEntitySet() {
@@ -49,4 +51,5 @@ public class GroupEntity extends SNEntity {
 		this.menuEntitySet = menuEntitySet;
 	}
 
+	
 }

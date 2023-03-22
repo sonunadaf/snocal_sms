@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.snocal.sms.module.commom.entity.PrimaryKeyEntity;
 import com.snocal.sms.module.commom.entity.SNEntity;
 
 @Entity

@@ -1,5 +1,6 @@
 package com.snocal.sms.conf.core.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,15 +19,16 @@ public class MenuEntity extends SNEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
+
 	@OneToOne
 	private AppApisEntity appApisEntity;
-	
+
 	@ManyToOne
-	@JoinColumn(name="group_id")
+	@JoinColumn(name = "group_id")
 	private GroupEntity groupEntity;
 
-	private String name;
+	@Column(name = "menu_name")
+	private String menuName;
 
 	public int getId() {
 		return id;
@@ -44,14 +46,20 @@ public class MenuEntity extends SNEntity {
 		this.appApisEntity = appApisEntity;
 	}
 
-	public String getName() {
-		return name;
+	public GroupEntity getGroupEntity() {
+		return groupEntity;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setGroupEntity(GroupEntity groupEntity) {
+		this.groupEntity = groupEntity;
 	}
 
-	
+	public String getMenuName() {
+		return menuName;
+	}
+
+	public void setMenuName(String menuName) {
+		this.menuName = menuName;
+	}
 
 }
