@@ -19,19 +19,19 @@ public class GroupEntity extends SNEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 
-	@Column(name="group_name")
+	@Column(name = "group_name")
 	private String groupName;
 
 	@OneToMany(mappedBy = "groupEntity")
 	private Set<MenuEntity> menuEntitySet = new HashSet<>();
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -51,5 +51,4 @@ public class GroupEntity extends SNEntity {
 		this.menuEntitySet = menuEntitySet;
 	}
 
-	
 }

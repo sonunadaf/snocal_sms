@@ -16,7 +16,7 @@ public class UserRoleEntity extends SNEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
@@ -26,11 +26,11 @@ public class UserRoleEntity extends SNEntity {
 	@JoinColumn(name = "role_id")
 	private RoleEntity roleEntity;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

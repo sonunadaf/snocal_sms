@@ -18,7 +18,7 @@ public class RoleEntity extends SNEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 
 	private String role;
 
@@ -28,11 +28,11 @@ public class RoleEntity extends SNEntity {
 	@OneToMany(mappedBy = "roleEntity")
 	private Set<RoleAppApisEntity> roleAppApisEntitySet = new HashSet<>();
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

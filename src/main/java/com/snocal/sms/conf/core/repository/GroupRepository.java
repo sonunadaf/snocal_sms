@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.snocal.sms.conf.core.entity.GroupEntity;
 
 @Repository
-public interface GroupRepository extends JpaRepository<GroupEntity, Integer> {
+public interface GroupRepository extends JpaRepository<GroupEntity, Long> {
 
 }

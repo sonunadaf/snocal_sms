@@ -16,7 +16,7 @@ public class RoleAppApisEntity extends SNEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 
 	@ManyToOne
 	@JoinColumn(name = "role_id")
@@ -26,11 +26,11 @@ public class RoleAppApisEntity extends SNEntity {
 	@JoinColumn(name = "app_api_id")
 	private AppApisEntity appApisEntity;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

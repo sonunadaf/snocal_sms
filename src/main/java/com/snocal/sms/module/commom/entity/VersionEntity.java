@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+import org.springframework.beans.factory.annotation.Value;
+
 @MappedSuperclass
 public class VersionEntity extends StatusEntity {
 
@@ -14,8 +16,9 @@ public class VersionEntity extends StatusEntity {
 	@Column(name = "updated_date")
 	private Date updatedDate;
 
-	@Column(name = "version")
-	private int currentVersion;
+	@Value("${snocal.product.version}")
+	@Column(name = "current_version")
+	private String currentVersion;
 
 	private String description;
 
@@ -27,8 +30,9 @@ public class VersionEntity extends StatusEntity {
 
 		if (this.createdDate != null) {
 			this.createdDate = new Date();
+		} else {
+			this.createdDate = createdDate;
 		}
-		this.createdDate = createdDate;
 	}
 
 	public Date getUpdatedDate() {
@@ -39,15 +43,17 @@ public class VersionEntity extends StatusEntity {
 
 		if (this.updatedDate != null) {
 			this.updatedDate = new Date();
+		} else {
+			this.updatedDate = updatedDate;
 		}
-		this.updatedDate = updatedDate;
+
 	}
 
-	public int getCurrentVersion() {
+	public String getCurrentVersion() {
 		return currentVersion;
 	}
 
-	public void setCurrentVersion(int currentVersion) {
+	public void setCurrentVersion(String currentVersion) {
 		this.currentVersion = currentVersion;
 	}
 

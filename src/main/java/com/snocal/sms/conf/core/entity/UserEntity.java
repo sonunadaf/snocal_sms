@@ -19,7 +19,7 @@ public class UserEntity extends SNEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 
 	@Column(name = "user_name")
 	private String userName;
@@ -29,11 +29,11 @@ public class UserEntity extends SNEntity {
 	@OneToMany(mappedBy = "userEntity")
 	private Set<UserRoleEntity> userRoleEntitySet = new HashSet<>();
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -17,8 +17,8 @@ public interface CoreSetupService {
 
 	public void updateGroup(GroupDO groupDO);
 
-	public void deleteGroup(int id);
+	public void deleteGroup(Long id);
 
-	public List<GroupDO> getGroup(int id);
+	public List<GroupDO> getGroup(Long id);
 
 }

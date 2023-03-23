@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.snocal.sms.conf.core.entity.UserRoleEntity;
 
 @Repository
-public interface UserRoleRepository extends JpaRepository<UserRoleEntity, Integer> {
+public interface UserRoleRepository extends JpaRepository<UserRoleEntity, Long> {
 
 }

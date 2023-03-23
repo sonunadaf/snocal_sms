@@ -21,7 +21,7 @@ public class AppApisEntity extends SNEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 
 	private String urls;
 
@@ -37,11 +37,11 @@ public class AppApisEntity extends SNEntity {
 	@JoinColumn(name = "menu_id")
 	private MenuEntity menuEntity;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

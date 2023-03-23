@@ -1,5 +1,6 @@
 package com.snocal.sms.conf.core.service.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,18 +57,37 @@ public class CoreSetupServiceImpl implements CoreSetupService {
 	}
 
 	@Override
-	public void deleteGroup(int id) {
+	public void deleteGroup(Long id) {
 		GroupEntity groupEntity = groupRepository.findById(id).get();
-		/*
-		 * groupEntity.set groupRepository
-		 */
+		groupEntity.setActive(false);
+		groupEntity.setDeleted(true);
+		groupRepository.save(groupEntity);
 
 	}
 
 	@Override
-	public List<GroupDO> getGroup(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<GroupDO> getGroup(Long id) {
+		List<GroupDO> groupDOs = new ArrayList<>();
+		if (id != null) {
+			GroupEntity groupEntity = groupRepository.findById(id).get();
+			GroupDO groupDO = new GroupDO();
+			convertGroupEntityToDO(groupEntity, groupDO);
+			groupDOs.add(groupDO);
+			return groupDOs;
+		} else {
+			List<GroupEntity> groupEntities = groupRepository.findAll();
+			for (GroupEntity groupEntity : groupEntities) {
+				GroupDO groupDO = new GroupDO();
+				convertGroupEntityToDO(groupEntity, groupDO);
+				groupDOs.add(groupDO);
+			}
+			return groupDOs;
+		}
+	}
+
+	private void convertGroupEntityToDO(GroupEntity entity, GroupDO groupDO) {
+		groupDO.setId(entity.getId());
+		groupDO.setGroupName(entity.getGroupName());
 	}
 
 }

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.snocal.sms.conf.core.entity.AppApisEntity;
 
 @Repository
-public interface AppApisRepository extends JpaRepository<AppApisEntity, Integer> {
+public interface AppApisRepository extends JpaRepository<AppApisEntity, Long> {
 
 }
