@@ -1,15 +1,15 @@
-create table hibernate_sequence (next_val bigint);
-insert into hibernate_sequence values ( 1 );
-create table role_app_apis (id integer not null, id_active bit, id_deleted bit, created_date datetime(6), version integer, description varchar(255), updated_date datetime(6), app_api_id integer, role_id integer, primary key (id));
-create table sn_apis (id integer not null, id_active bit, id_deleted bit, created_date datetime(6), version integer, description varchar(255), updated_date datetime(6), method_type varchar(255), params varchar(255), urls varchar(255), primary key (id));
-create table sn_group (id integer not null, id_active bit, id_deleted bit, created_date datetime(6), version integer, description varchar(255), updated_date datetime(6), group_name varchar(255), primary key (id));
-create table sn_menu (id integer not null, id_active bit, id_deleted bit, created_date datetime(6), version integer, description varchar(255), updated_date datetime(6), menu_name varchar(255), app_apis_entity_id integer, group_id integer, primary key (id));
-create table sn_role (id integer not null, id_active bit, id_deleted bit, created_date datetime(6), version integer, description varchar(255), updated_date datetime(6), role varchar(255), primary key (id));
-create table sn_user (id integer not null, id_active bit, id_deleted bit, created_date datetime(6), version integer, description varchar(255), updated_date datetime(6), password varchar(255), user_name varchar(255), primary key (id));
-create table user_role (id integer not null, id_active bit, id_deleted bit, created_date datetime(6), version integer, description varchar(255), updated_date datetime(6), role_id integer, user_id integer, primary key (id));
-alter table role_app_apis add constraint FK6lfso3nqbigdaje2o3wswo7v5 foreign key (app_api_id) references sn_apis (id);
-alter table role_app_apis add constraint FKlkk8ctmrrbmie5boscbbxy9cq foreign key (role_id) references sn_role (id);
-alter table sn_menu add constraint FKov2bw4ng196m5kagojugqf6r foreign key (app_apis_entity_id) references sn_apis (id);
-alter table sn_menu add constraint FKl4p9xdii5l7d760yfqo5d4p9b foreign key (group_id) references sn_group (id);
-alter table user_role add constraint FKemc7pwtidshc4xb7o7e21u0qc foreign key (role_id) references sn_role (id);
-alter table user_role add constraint FK2avfqglpbdq1kw8rkwn92q3le foreign key (user_id) references sn_user (id);
+create table hibernate_sequence (next_val bigint) engine=InnoDB
+insert into hibernate_sequence values ( 1 )
+create table role_app_apis (id bigint not null, id_active boolean default true, id_deleted boolean default false, created_date datetime(6), current_version varchar(255), description varchar(255), updated_date datetime(6), app_api_id bigint, role_id bigint, primary key (id)) engine=InnoDB
+create table sn_apis (id bigint not null, id_active boolean default true, id_deleted boolean default false, created_date datetime(6), current_version varchar(255), description varchar(255), updated_date datetime(6), method_type varchar(255), params varchar(255), urls varchar(255), primary key (id)) engine=InnoDB
+create table sn_group (id bigint not null, id_active boolean default true, id_deleted boolean default false, created_date datetime(6), current_version varchar(255), description varchar(255), updated_date datetime(6), group_name varchar(255), primary key (id)) engine=InnoDB
+create table sn_menu (id bigint not null, id_active boolean default true, id_deleted boolean default false, created_date datetime(6), current_version varchar(255), description varchar(255), updated_date datetime(6), menu_name varchar(255), app_apis_entity_id bigint, group_id bigint, primary key (id)) engine=InnoDB
+create table sn_role (id bigint not null, id_active boolean default true, id_deleted boolean default false, created_date datetime(6), current_version varchar(255), description varchar(255), updated_date datetime(6), role varchar(255), primary key (id)) engine=InnoDB
+create table sn_user (id bigint not null, id_active boolean default true, id_deleted boolean default false, created_date datetime(6), current_version varchar(255), description varchar(255), updated_date datetime(6), password varchar(255), user_name varchar(255), primary key (id)) engine=InnoDB
+create table user_role (id bigint not null, id_active boolean default true, id_deleted boolean default false, created_date datetime(6), current_version varchar(255), description varchar(255), updated_date datetime(6), role_id bigint, user_id bigint, primary key (id)) engine=InnoDB
+alter table role_app_apis add constraint FK6lfso3nqbigdaje2o3wswo7v5 foreign key (app_api_id) references sn_apis (id)
+alter table role_app_apis add constraint FKlkk8ctmrrbmie5boscbbxy9cq foreign key (role_id) references sn_role (id)
+alter table sn_menu add constraint FKov2bw4ng196m5kagojugqf6r foreign key (app_apis_entity_id) references sn_apis (id)
+alter table sn_menu add constraint FKl4p9xdii5l7d760yfqo5d4p9b foreign key (group_id) references sn_group (id)
+alter table user_role add constraint FKemc7pwtidshc4xb7o7e21u0qc foreign key (role_id) references sn_role (id)
+alter table user_role add constraint FK2avfqglpbdq1kw8rkwn92q3le foreign key (user_id) references sn_user (id)

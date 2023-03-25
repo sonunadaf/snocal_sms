@@ -12,6 +12,11 @@ public class StatusEntity {
 	@Column(name = "id_deleted", columnDefinition = "boolean default false")
 	private boolean isDeleted;
 
+	public StatusEntity() {
+		this.isActive = true;
+		this.isDeleted = false;
+	}
+
 	public boolean isActive() {
 		return isActive;
 	}

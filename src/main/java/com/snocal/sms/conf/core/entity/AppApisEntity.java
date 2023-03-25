@@ -19,10 +19,6 @@ import com.snocal.sms.module.commom.entity.SNEntity;
 @Table(name = "SN_APIS")
 public class AppApisEntity extends SNEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-
 	private String urls;
 
 	@Column(name = "method_type")
@@ -33,17 +29,9 @@ public class AppApisEntity extends SNEntity {
 	@OneToMany(mappedBy = "appApisEntity")
 	private Set<RoleAppApisEntity> roleAppApisEntitySet = new HashSet<>();
 
-	@OneToOne(mappedBy = "appApisEntity")
+	@OneToOne
 	@JoinColumn(name = "menu_id")
 	private MenuEntity menuEntity;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getUrls() {
 		return urls;
@@ -84,7 +72,5 @@ public class AppApisEntity extends SNEntity {
 	public void setMenuEntity(MenuEntity menuEntity) {
 		this.menuEntity = menuEntity;
 	}
-
-	
 
 }

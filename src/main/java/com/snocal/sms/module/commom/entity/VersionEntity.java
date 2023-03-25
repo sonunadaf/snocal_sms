@@ -16,23 +16,24 @@ public class VersionEntity extends StatusEntity {
 	@Column(name = "updated_date")
 	private Date updatedDate;
 
-	@Value("${snocal.product.version}")
 	@Column(name = "current_version")
+	@Value("${snocal.product.version}")
 	private String currentVersion;
 
 	private String description;
+
+	public VersionEntity() {
+		this.createdDate = new Date();
+		this.updatedDate = new Date();
+
+	}
 
 	public Date getCreatedDate() {
 		return createdDate;
 	}
 
 	public void setCreatedDate(Date createdDate) {
-
-		if (this.createdDate != null) {
-			this.createdDate = new Date();
-		} else {
-			this.createdDate = createdDate;
-		}
+		this.createdDate = createdDate;
 	}
 
 	public Date getUpdatedDate() {
@@ -40,19 +41,14 @@ public class VersionEntity extends StatusEntity {
 	}
 
 	public void setUpdatedDate(Date updatedDate) {
-
-		if (this.updatedDate != null) {
-			this.updatedDate = new Date();
-		} else {
-			this.updatedDate = updatedDate;
-		}
-
+		this.updatedDate = updatedDate;
 	}
 
 	public String getCurrentVersion() {
 		return currentVersion;
 	}
 
+	@Value("${snocal.product.version}")
 	public void setCurrentVersion(String currentVersion) {
 		this.currentVersion = currentVersion;
 	}

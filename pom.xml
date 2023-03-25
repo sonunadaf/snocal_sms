@@ -18,6 +18,7 @@
 	<properties>
 		<java.version>17</java.version>
 		<jstl.version>1.2</jstl.version>
+		<mapstruct.version>1.5.3.Final</mapstruct.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -66,14 +67,19 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-		    <groupId>org.webjars</groupId>
-		    <artifactId>bootstrap</artifactId>
-		    <version>3.3.7-1</version>
+		   <groupId>org.mapstruct</groupId>
+		   <artifactId>mapstruct</artifactId>
+		   <version>${mapstruct.version}</version>
 		</dependency>
 		<dependency>
-		    <groupId>org.webjars</groupId>
-		    <artifactId>jquery</artifactId>
-		    <version>3.1.1</version>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger2</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger-ui</artifactId>
+		    <version>3.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -91,6 +97,21 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<traget>${java.version}</traget>
+					<annotationProcessorPaths>
+						<path>
+							 <groupId>org.mapstruct</groupId>
+		   					 <artifactId>mapstruct-processor</artifactId>
+		  					  <version>${mapstruct.version}</version>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

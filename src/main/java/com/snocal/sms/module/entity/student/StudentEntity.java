@@ -7,11 +7,11 @@ import javax.persistence.Table;
 
 
 
-import com.snocal.sms.module.commom.entity.PrimaryKeyEntity;
+import com.snocal.sms.module.commom.entity.AbstractEntity;
 
 @Entity
 @Table(name = "STUDENT")
-public class StudentEntity extends PrimaryKeyEntity{
+public class StudentEntity extends AbstractEntity{
 	
 	private String name;
 	private Date dateOfBirth;

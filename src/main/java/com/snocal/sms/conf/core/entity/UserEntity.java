@@ -5,9 +5,6 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -17,10 +14,6 @@ import com.snocal.sms.module.commom.entity.SNEntity;
 @Table(name = "SN_USER")
 public class UserEntity extends SNEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-
 	@Column(name = "user_name")
 	private String userName;
 
@@ -28,14 +21,6 @@ public class UserEntity extends SNEntity {
 
 	@OneToMany(mappedBy = "userEntity")
 	private Set<UserRoleEntity> userRoleEntitySet = new HashSet<>();
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getUserName() {
 		return userName;

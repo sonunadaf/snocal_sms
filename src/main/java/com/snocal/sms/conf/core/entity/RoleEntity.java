@@ -16,10 +16,6 @@ import com.snocal.sms.module.commom.entity.SNEntity;
 @Table(name = "SN_ROLE")
 public class RoleEntity extends SNEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-
 	private String role;
 
 	@OneToMany(mappedBy = "roleEntity")
@@ -27,14 +23,6 @@ public class RoleEntity extends SNEntity {
 
 	@OneToMany(mappedBy = "roleEntity")
 	private Set<RoleAppApisEntity> roleAppApisEntitySet = new HashSet<>();
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getRole() {
 		return role;
